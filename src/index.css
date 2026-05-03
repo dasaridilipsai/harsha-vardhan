@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #05070A;
+  --color-primary: #00FFAA;
+  --color-secondary: #00A8FF;
+  --font-sans: 'Inter', sans-serif;
+}
+
+:root {
+  --background: #05070A;
+  --primary: #00FFAA;
+  --secondary: #00A8FF;
+  --text-primary: #FFFFFF;
+  --text-muted: #8892B0;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  cursor: none; /* For custom cursor */
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  transition: all 0.3s ease;
+}
+
+.glass-hover:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.05), 0 8px 32px rgba(0,0,0,0.5);
+  transform: scale(1.04);
+}
+
+/* Premium Text Enhancements */
+h1, h2, h3, h4, h5, h6, .tracking-tight {
+  letter-spacing: -0.01em;
+}
+
+/* Depth Effect (Cursor Parallax) */
+.parallax-subtle {
+  transform: translate(calc(var(--mouse-x, 0) * 3px), calc(var(--mouse-y, 0) * 3px));
+  transition: transform 0.1s ease-out;
+}
+.parallax-md {
+  transform: translate(calc(var(--mouse-x, 0) * 6px), calc(var(--mouse-y, 0) * 6px));
+  transition: transform 0.1s ease-out;
+}
+
+/* Cinematic Noise Overlay */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJub2lzZUZpbHRlciI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuODUiIG51bU9jdGF2ZXM9IjMiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCg#ub2lzZUZpbHRlcikiLz48L3N2Zz4=");
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+  box-shadow: 0 0 10px rgba(0, 255, 170, 0.5);
+}
+
+/* Lenis smooth scrolling requires html, body to have height: auto */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
